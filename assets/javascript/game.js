@@ -57,6 +57,7 @@
 //--------------------------------------
 
 //DISPLAY UNDERSCORE FOR THE CURRENT WORD 
+
 document.getElementById("underScore-text").innerHTML = generateUnderScore(); 
 
 
@@ -64,7 +65,8 @@ document.getElementById("underScore-text").innerHTML = generateUnderScore();
 // This function is run whenever the user presses a key.
 document.onkeyup = function(event) {
 
-   
+//    console.log("On key press : "+ displayUnderScore.join(" "));
+
     // Determines which key was pressed.
     var userGuess = event.key;
 
@@ -116,7 +118,7 @@ document.onkeyup = function(event) {
         //SETTING VALUES 
         //--------------------------------------
         if ( displayUnderScore != null ) { 
-            document.getElementById("underScore-text").innerHTML = displayUnderScore;  
+            document.getElementById("underScore-text").innerHTML = displayUnderScore.join(" ");  
         }
         document.getElementById("noOfGuessRem").innerHTML = remainingLetters; 
         document.getElementById("wins-text").innerHTML = wins;  

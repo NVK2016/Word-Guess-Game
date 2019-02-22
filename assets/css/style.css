@@ -2,8 +2,7 @@
 .underScore-text{
     font-size :30px; 
     border: solid 5px red; 
-    font-family: 'ZCOOL KuaiLe', cursive;
-    color: red; 
+    font-family: 'ZCOOL KuaiLe', cursive; 
 }
 body { 
 font-family: 'Mogra', cursive;
@@ -16,8 +15,13 @@ span, p , div{
     margin: 15px; 
 }
 
-
-
+span{
+    color : maroon; 
+    font-size: 22px; 
+}
+div{
+    font-size:25px;
+}
 /* Shadow effect to game name */
 .gameHeading {
     text-shadow: 1px 12px 6px #FF2BF8;
@@ -27,7 +31,11 @@ span, p , div{
     padding : 20px;
     margin: 20px 0 0 40px; 
     font-family: 'ZCOOL KuaiLe', cursive;
+    /* Implement CSS animation  */
+
 }
+
+
 
 p {
     padding: 5px;
