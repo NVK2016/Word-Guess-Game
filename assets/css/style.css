@@ -1,1 +1,17 @@
 /* Game styling  */
+.underScore-text{
+    font-size :30px; 
+    border: solid 5px red; 
+    font-family: 'ZCOOL KuaiLe', cursive;
+    color: red; 
+}
+body { 
+font-family: 'Mogra', cursive;
+padding: 10px; 
+margin: 10px; 
+text-align: center; 
+
+}
+span, p , div{
+    margin: 15px; 
+}
