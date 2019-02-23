@@ -1,7 +1,7 @@
 # Word-Guess-Game
 Hangman game 
 
-Guess the word :). Players can start playing by pressing any key. On guessing the correct letter the game will start revealing them so it gets easier to guess the entire name. 
+Guess the movie name :). Players can start playing by pressing any key. On guessing the correct letter the game will start revealing them so it gets easier to guess the entire name. 
 After the user wins/loses the game will automatically choose another word to play again.
 
 ## Built With: 

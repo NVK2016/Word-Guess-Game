@@ -13,7 +13,7 @@ text-align: center;
 
 }
 span, p , div{
-    margin: 15px; 
+    margin: 10px; 
 }
 .col1 , .col2{
     float: left; 

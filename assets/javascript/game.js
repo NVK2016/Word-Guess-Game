@@ -4,11 +4,10 @@
 // -----------------------------------------
 
     //Create a list of words "
-    var hangmanList = ["Hello", "Someone like you", "millions years ago", "skyfall"]; 
+    var hangmanList = ["Skyfall", "Rocky", "Clueless", "Jaws", "Taken", "Gladiator","Bridesmaids", "Titanic","Inception"]; 
 
     // Randomly chooses a choice from the options array. This is the Computer's guess.
     var randomChoice = hangmanList[Math.floor(Math.random() * hangmanList.length)];
-    console.log("Random generated Word: " + randomChoice); 
 
     //DISPLAYS _ _ _ for the random word geenrated 
     var displayUnderScore = []; 
@@ -46,15 +45,18 @@
         document.getElementById("underScore-text").textContent = generateUnderScore(); 
         // console.log("resetGame displayUnderScore "+ displayUnderScore ); 
 
-        document.getElementById("noOfGuessRem").textContent = 12; //Reset lives to 12 
+        remainingLives = 12; //Reset lives to 12 
+        document.getElementById("noOfGuessRem").textContent = remainingLives; 
 
         collectLettersTyped = [] ; 
         document.getElementById("lettersAlreadyGuess").textContent = collectLettersTyped ; 
 
         document.getElementById("wins-text").textContent = wins;   
+
+        //Reset the letter count for the random word generated 
+        remainingLetters = randomChoice.length; 
+        console.log("ResetGame: "+ remainingLetters + "Lives" + remainingLives);
     }
-console.log("Remaining letter" + remainingLetters); 
-console.log("remainingLives: "+ remainingLives);
 
 //SETTING VALUES 
 //--------------------------------------
@@ -70,16 +72,8 @@ document.onkeyup = function(event) {
 
     // Determines which key was pressed.
     var userGuess = event.key;
-    console.log("Letter Exists: "+ randomChoice.indexOf(userGuess) );
 
-    //Decrement the Lives as soon as the user unputs value don't count repative letters 
-    if(randomChoice.indexOf(userGuess) === -1){
-        remainingLives--; 
-    } else {
-        remainingLives--;
-    }
-    
-    //Verify the players guess with the randome generated choice 
+    //Verify the players guess matched with letters within the randome generated choice 
     for (var j = 0; j < randomChoice.length; j++) {
 
         //Player guess equals to random guess 
@@ -93,28 +87,30 @@ document.onkeyup = function(event) {
                 //Only add the letter to the list if not typed earlier i.e. display unique letters 
                 if (collectLettersTyped.indexOf(userGuess) <= -1 ){ 
                     collectLettersTyped.push(userGuess); 
+                    remainingLives--;
                 }
                 //decerese the count gcvj
                 remainingLetters--;
             }
-           
-        } else {
-
             
+        } 
+        else {
+
             //Only add the letter to the list if not typed earlier i.e. display unique letters
             if (collectLettersTyped.indexOf(userGuess) <= -1 ){ 
                 collectLettersTyped.push(userGuess); 
-                
+                remainingLives--;
             }
         }
     }
-    console.log("Remaining letters:" + remainingLetters); 
+    console.log("Movie name: "+ randomChoice); 
+    console.log("Remaining letter: " + remainingLetters); 
     console.log("remainingLives: "+ remainingLives);
-
-    //Win count 
+    //Win count all the players answer matched the random words 
     if ( remainingLetters == 0 ){
         //Upodate the win count 
         wins += 1; 
+        console.log("Player Won!!!"); 
         //restart the game 
         resetGame() ;
     } else {
@@ -132,8 +128,9 @@ document.onkeyup = function(event) {
 
     }
     //Runs out of chances 
-    if ( remainingLives == 0 ) {
+    if ( remainingLives <= 0 ) {
         //restart game 
+        console.log("you lost :( better luck next time !!")
         resetGame(); 
     }
     
