@@ -13,7 +13,7 @@ After the user wins/loses the game will automatically choose another word to pla
 <a href="https://nvk2016.github.io/Word-Game-Guess">Word Guess GAme </a>
 
 ### GAME SNAPSHOT 
-![Hangman Game](https://github.com/NVK2016/Psychic-Game/blob/master/Hangman-Screenshot.png?raw=true)
+![Hangman Game](https://github.com/NVK2016/Word-Guess-Game/blob/master/Hangman-Screenshot.png?raw=true)
 
 
 ### ISSUES 
