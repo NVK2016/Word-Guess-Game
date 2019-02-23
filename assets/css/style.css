@@ -10,9 +10,13 @@ padding: 10px;
 margin: 10px; 
 text-align: center; 
 
+
 }
 span, p , div{
     margin: 15px; 
+}
+.col1 , .col2{
+    float: left; 
 }
 
 span{

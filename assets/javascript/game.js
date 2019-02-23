@@ -12,10 +12,15 @@
 
     //DISPLAYS _ _ _ for the random word geenrated 
     var displayUnderScore = []; 
+
     //Takes the length of the random word generated 
     var remainingLetters = randomChoice.length;
 
+    //No of chances a player has to guess the word 
+    var remainingLives = 12; 
+
     var wins = 0; 
+
     //Holds the letters already guessed by the player
     var collectLettersTyped = [];  
 
@@ -34,44 +39,46 @@
     }
 
     //Resetting all values 
-    function newGame() {
+    function resetGame() {
         // Randomly chooses a choice from the options array. This is the Computer's guess.
         randomChoice = hangmanList[Math.floor(Math.random() * hangmanList.length)];
 
-        document.getElementById("underScore-text").innerHTML = generateUnderScore(); 
+        document.getElementById("underScore-text").textContent = generateUnderScore(); 
+        // console.log("resetGame displayUnderScore "+ displayUnderScore ); 
 
-        console.log("NewGame displayUnderScore "+ displayUnderScore ); 
-
-        remainingLetters = randomChoice.length;
-        document.getElementById("noOfGuessRem").innerHTML = remainingLetters; 
+        document.getElementById("noOfGuessRem").textContent = 12; //Reset lives to 12 
 
         collectLettersTyped = [] ; 
-        document.getElementById("lettersAlreadyGuess").innerHTML = collectLettersTyped ; 
+        document.getElementById("lettersAlreadyGuess").textContent = collectLettersTyped ; 
 
-        document.getElementById("wins-text").innerHTML = wins;   
-
+        document.getElementById("wins-text").textContent = wins;   
     }
-// console.log("Remaining letter" + remainingLetters); 
+console.log("Remaining letter" + remainingLetters); 
+console.log("remainingLives: "+ remainingLives);
 
 //SETTING VALUES 
 //--------------------------------------
 
 //DISPLAY UNDERSCORE FOR THE CURRENT WORD 
 
-document.getElementById("underScore-text").innerHTML = generateUnderScore(); 
-
+document.getElementById("underScore-text").textContent = generateUnderScore(); 
+document.getElementById("noOfGuessRem").textContent = remainingLives; 
 
 
 // This function is run whenever the user presses a key.
 document.onkeyup = function(event) {
 
-//    console.log("On key press : "+ displayUnderScore.join(" "));
-
     // Determines which key was pressed.
     var userGuess = event.key;
+    console.log("Letter Exists: "+ randomChoice.indexOf(userGuess) );
 
-    // console.log(event.keyCode);
-
+    //Decrement the Lives as soon as the user unputs value don't count repative letters 
+    if(randomChoice.indexOf(userGuess) === -1){
+        remainingLives--; 
+    } else {
+        remainingLives--;
+    }
+    
     //Verify the players guess with the randome generated choice 
     for (var j = 0; j < randomChoice.length; j++) {
 
@@ -80,9 +87,6 @@ document.onkeyup = function(event) {
             //show the letter instead of the underscore
             displayUnderScore[j] = userGuess;
 
-            // console.log("Present: "+ displayUnderScore.indexOf(userGuess))
-            // console.log("present in random word " + randomChoice[j].indexOf(userGuess) + " userguess "+ userGuess);
-
             //Letter exsits then add it to the array 
             if (displayUnderScore.indexOf(userGuess) > -1 ){ 
 
@@ -90,42 +94,47 @@ document.onkeyup = function(event) {
                 if (collectLettersTyped.indexOf(userGuess) <= -1 ){ 
                     collectLettersTyped.push(userGuess); 
                 }
-                //decerese the count 
+                //decerese the count gcvj
                 remainingLetters--;
             }
-
            
         } else {
 
-            // console.log("Not present in random word " + randomChoice[j].indexOf(userGuess) + " userguess "+ userGuess);
-
+            
             //Only add the letter to the list if not typed earlier i.e. display unique letters
             if (collectLettersTyped.indexOf(userGuess) <= -1 ){ 
                 collectLettersTyped.push(userGuess); 
-
+                
             }
         }
     }
+    console.log("Remaining letters:" + remainingLetters); 
+    console.log("remainingLives: "+ remainingLives);
 
     //Win count 
     if ( remainingLetters == 0 ){
         //Upodate the win count 
         wins += 1; 
         //restart the game 
-        newGame() ;
+        resetGame() ;
     } else {
-
+        
         //SETTING VALUES 
         //--------------------------------------
         if ( displayUnderScore != null ) { 
-            document.getElementById("underScore-text").innerHTML = displayUnderScore.join(" ");  
+            document.getElementById("underScore-text").textContent = displayUnderScore.join(" ");  
         }
-        document.getElementById("noOfGuessRem").innerHTML = remainingLetters; 
-        document.getElementById("wins-text").innerHTML = wins;  
+        document.getElementById("noOfGuessRem").textContent = remainingLives; 
+        document.getElementById("wins-text").textContent = wins;  
         if ( collectLettersTyped != null ) { 
-            document.getElementById("lettersAlreadyGuess").innerHTML = collectLettersTyped ;
+            document.getElementById("lettersAlreadyGuess").textContent = collectLettersTyped ;
         } 
 
+    }
+    //Runs out of chances 
+    if ( remainingLives == 0 ) {
+        //restart game 
+        resetGame(); 
     }
     
 }
