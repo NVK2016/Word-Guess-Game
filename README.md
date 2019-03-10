@@ -10,12 +10,7 @@ After the user wins/loses the game will automatically choose another word to pla
 * CSS 
 
 ### GAME LINK (click the link below) 
-<a href="https://nvk2016.github.io/Word-Game-Guess">Word Guess GAme </a>
+<a href="https://nvk2016.github.io/Word-Game-Guess/">Word Guess GAme </a>
 
 ### GAME SNAPSHOT 
 ![Hangman Game](https://github.com/NVK2016/Word-Guess-Game/blob/master/Hangman-Screenshot.png?raw=true)
-
-
-### ISSUES 
-* the number of chances isn't working as expected in case if the letter are guessed wrong. 
-* when all the letters are guessed right the number of changes works as expected. 
