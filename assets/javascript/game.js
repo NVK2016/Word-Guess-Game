@@ -58,6 +58,38 @@
         console.log("ResetGame: "+ remainingLetters + "Lives" + remainingLives);
     }
 
+    //Check for speical key value and return true if found 
+    function keyStrokeValues(keyValue){
+
+        switch (keyValue){
+        case 8: //backspace
+        case 9: //tab
+        case 13: //enter
+        case 16: //shift
+        case 17: //ctrl
+        case 18: //alt
+        case 19: // pause/break
+        case 20: // caps lock 
+        case 27: // escape
+        case 32: // space key 
+        case 33: // page up 
+        case 34: // page down
+        case 35: // end                 
+        case 36: // home                
+        case 37: // left arrow  
+        case 38: // up arrow  
+        case 39: // right arrow 
+        case 40: // down arrow 
+        case 45:// insert 
+        case 46:// delete
+        case 91:// meta key 
+            alert("PLEASE enter a valid letter choice!")
+            return true; 
+        default: 
+            return false; 
+        }
+    }
+
 //SETTING VALUES 
 //--------------------------------------
 
@@ -73,36 +105,40 @@ document.onkeyup = function(event) {
     // Determines which key was pressed.
     var userGuess = event.key;
 
-    //Verify the players guess matched with letters within the randome generated choice 
-    for (var j = 0; j < randomChoice.length; j++) {
+     //Check that user doesn't click special keys while guessing letters 
+    if (!keyStrokeValues(event.keyCode)) {  
 
-        //Player guess equals to random guess 
-        if (randomChoice[j].toLowerCase() === userGuess.toLowerCase()) {
-            //show the letter instead of the underscore
-            displayUnderScore[j] = userGuess;
+        //Verify the players guess matched with letters within the randome generated choice 
+        for (var j = 0; j < randomChoice.length; j++) {
 
-            //Letter exsits then add it to the array 
-            if (displayUnderScore.indexOf(userGuess) > -1 ){ 
+            //Player guess equals to random guess 
+            if (randomChoice[j].toLowerCase() === userGuess.toLowerCase()) {
+                //show the letter instead of the underscore
+                displayUnderScore[j] = userGuess;
 
-                //Only add the letter to the list if not typed earlier i.e. display unique letters 
+                //Letter exsits then add it to the array 
+                if (displayUnderScore.indexOf(userGuess) > -1 ){ 
+
+                    //Only add the letter to the list if not typed earlier i.e. display unique letters 
+                    if (collectLettersTyped.indexOf(userGuess) <= -1 ){ 
+                        collectLettersTyped.push(userGuess); 
+                        remainingLives--;
+                    }
+                    //decerese the count gcvj
+                    remainingLetters--;
+                }
+                
+            } 
+            else {
+
+                //Only add the letter to the list if not typed earlier i.e. display unique letters
                 if (collectLettersTyped.indexOf(userGuess) <= -1 ){ 
                     collectLettersTyped.push(userGuess); 
                     remainingLives--;
                 }
-                //decerese the count gcvj
-                remainingLetters--;
-            }
-            
-        } 
-        else {
-
-            //Only add the letter to the list if not typed earlier i.e. display unique letters
-            if (collectLettersTyped.indexOf(userGuess) <= -1 ){ 
-                collectLettersTyped.push(userGuess); 
-                remainingLives--;
             }
         }
-    }
+    } 
     console.log("Movie name: "+ randomChoice); 
     console.log("Remaining letter: " + remainingLetters); 
     console.log("remainingLives: "+ remainingLives);
@@ -133,5 +169,5 @@ document.onkeyup = function(event) {
         console.log("you lost :( better luck next time !!")
         resetGame(); 
     }
-    
+   
 }
