@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Word Guess Game</title>
-        <!-- Link to CSS file -->
-        <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <!-- Refernce to Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Mogra|ZCOOL+KuaiLe" rel="stylesheet">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Word Guess Game</title>
+    <!-- for responsive layout -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Refernce to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Mogra|ZCOOL+KuaiLe" rel="stylesheet">
+</head>
 
-    <body>
+<body>
 
-        <h1 class="gameHeading">HANGMAN</h1>
-        <h6>Guess the movie name..</h6>
+    <h1 class="gameHeading">HANGMAN</h1>
+    <h6>Guess the movie name..</h6>
 
-        <div class="container">
-            <div class="row">
-                <div class="col1">
-                    <img src="assets/images/hangmangame.jpg" />
-                </div>
-                <div class="col2">
-        
-        <p>Press any key to start playing!!</p>
-        <span>WINS # : </span>
-        <div id="wins-text"></div>
-        <br /> 
-        <span >CURRENT WORD</span>
-        <div id="underScore-text">display underscore </div>
-        <br /> 
-        <span >Number of Lives Remaining is </span>
-        <div id="noOfGuessRem"></div>
-        <br/>
-        <span >Letters already Guessed </span>
-        <div id="lettersAlreadyGuess"></div>
-        <br/> 
-    </div>
-    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col1">
+                <img src="assets/images/hangmangame.jpg" />
+            </div>
+            <div class="col2">
+
+                <p>Press any key to start playing!!</p>
+                <span>WINS # : </span>
+                <div id="wins-text"></div>
+                <br />
+                <span>CURRENT WORD</span>
+                <div id="underScore-text">display underscore </div>
+                <br />
+                <span>Number of Lives Remaining is </span>
+                <div id="noOfGuessRem"></div>
+                <br />
+                <span>Letters already Guessed </span>
+                <div id="lettersAlreadyGuess"></div>
+                <br />
+            </div>
+            <div class="col3" >
+                <img id="winLossGif"  />
+            </div>
         </div>
-       
-        <!-- Link to javascript file -->
-        <script src="assets/javascript/game.js"> </script>
-    </body>
+    </div>
+
+    <!-- Link to javascript file -->
+    <script src="assets/javascript/game.js"> </script>
+</body>
 
 </html>

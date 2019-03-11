@@ -10,7 +10,7 @@ After the user wins/loses the game will automatically choose another word to pla
 * CSS 
 
 ### GAME LINK (click the link below) 
-<a href="https://nvk2016.github.io/Word-Game-Guess/">Word Guess GAme </a>
+<a href="https://nvk2016.github.io/Word-Guess-Game/">Hangman - Movie Buzz </a>
 
 ### GAME SNAPSHOT 
 ![Hangman Game](https://github.com/NVK2016/Word-Guess-Game/blob/master/Hangman-Screenshot.png?raw=true)

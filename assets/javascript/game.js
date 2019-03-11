@@ -147,6 +147,7 @@ document.onkeyup = function(event) {
         //Upodate the win count 
         wins += 1; 
         console.log("Player Won!!!"); 
+        document.getElementById("winLossGif").setAttribute("src", "assets/images/win.gif");
         //restart the game 
         resetGame() ;
     } else {
@@ -167,6 +168,7 @@ document.onkeyup = function(event) {
     if ( remainingLives <= 0 ) {
         //restart game 
         console.log("you lost :( better luck next time !!")
+        document.getElementById("winLossGif").setAttribute("src", "assets/images/loss.gif");
         resetGame(); 
     }
    

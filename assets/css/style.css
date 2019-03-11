@@ -15,7 +15,7 @@ text-align: center;
 span, p , div{
     margin: 10px; 
 }
-.col1 , .col2{
+.col1 , .col2, .col3{
     float: left; 
 }
 
