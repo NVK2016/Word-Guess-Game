@@ -46,3 +46,15 @@ p {
     margin: 10px; 
     /* position: fixed; */
 }
+
+/* Gradient background  */
+body  {
+    height: 100px;
+    /* background-color: red; */
+    background-image:
+      radial-gradient(
+        lightblue,
+        blue   
+      );
+  }
+  
